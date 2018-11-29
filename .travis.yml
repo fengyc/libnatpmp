@@ -1,12 +1,15 @@
+os:
+- windows
+- linux
+- osx
 language: rust
 script:
 - cargo build --verbose --all
-- cargo test --verbose test::test_ffi
-- cargo test --verbose test::test_natpmp
 - cargo doc
 deploy:
   provider: cargo
   on:
     tags: true
+    condition: $TRAVIS_OS_NAME = linux
   token:
-    secure: qDqGQ7UBWZg73veaRHMRFcMsJFX2QcGcAELgZgaLlr8sx2yOUm1aWiU8KGLoZJgR4cKRYDRJ+X6YSLFiGdOcek44jRwqrjRDD9yW6OPgwMJXtQSXztbQTapul7Pmw09LH01GlwO2sBk4DE1MFcoKsfi6cHkFGanx44IICPEV1e8euxgLoPQhDaegHgCQseKefrtZkjWIGOL0YPYzpezZA0hTBw5yUC2j4mp1AxfoWg++z+fxrapR+dMCUKNWkhLoY1CMaZxQ2cOanNMwNUgQtB6ZAqSRY7WhzD4jMasBL+RgkvB2bcm4SZ+18IYT33h7QipwPWL+EaVU5FPqiQDU+cvt+CmEGKdqQiY679ME6QuqY8joBdYdzjpRXD2QVoYx5WfnwPJl+GjtWjFgcJY4B0CWplffrHEH+9c1tGcTwkDa0Q57Xnp8+/c1Iy7bCSHMiMZhO0KMrLozf3Vanzr6CFr9437y54fjXu/4CO3X1DQxjfOfX/g5WarDLgq4xY77vK/QdKRFCMjczTCi9cEy1seE1eDpjRVyfSXfh5IU9YVkponk2JAVZNgFO0Tm5bpEm7gc4K3s8r520khar/WIPSEn4GFo4b6xXZlHaWJqJp3R8iiHUbHg2F/HyuzFOGYyrCu1UN1IgYhjxkm0zp+8tIY5bUDX/6K4OPjKXRmdToY=
+    secure: 1csUu9274A3vrmy85gX865khsh5gnFvKR6qa1C9mOwzM8dSXVR8oLdbfpXH2A3wZLj7Pbo5wYck1T+deXnCElO+M34rZ6b83dph4uM1UsKn88e8EC3ke6dmUTVimw6XeqeIQEZDj2NDZN4jEvp5RIJPKiVRuCk37Rp1UWIhZ4FS6bisOjsxmHBz7e/Gbj/rU/mwYnfzWTLmrhWRzFwlQtvYqVg5zjgOgSxwRW/wm+syUQZSKyiQzYGy7Cq3cm4v7wzlebhPL9cFIMj94cCrF8KNggoeLjkKi7WBkioAG9UHt8M5nRJEJrKTPOKZjk+PTciSopVzOo0CnqhUPWBIlG7aPhgBIafsoyybbpfjq3P5bUGkLIJ0zCnOmjQf5b6iXZgfSmTHVRLgO8VWVdPE7GO5e9b/srJewMZQWRBIkeVwz64fjK9eCaqv3Igw61yFc55Jkz/4Aze+ZN1ZQ0zJq31kpNT+Dpu1Ur3tyevD3adQfo2EX8Fgy1zxT9kTNtp0CuWq+ixrlYqG8kzlOEp+U7S1OctXxa//+SK+Wu6hPT1AmsvFm6a9G7Xj3LZGIEEAiqMQ+nP51ex+FWVpTdo/sh4ufyO13kMTbwASxdSJNBtq3yOXrRPEv5v4M9glOHjMCguCyc1/Hi7wDB6sH3qQoFgcMU2oIu+mdA5GB59GfwnE=
